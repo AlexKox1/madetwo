@@ -115,63 +115,41 @@
                             <div class="hello_slid">
 
                                 <form action="register.php" method="post" name="registerform">
-<!--                                    <label for="username">Введите веше имя:</label>-->
-                                    <div class="col-md-6">-->
+                                    <div class="col-md-6">
                                            <div class="form-group">
                                             <td>
-                                                <input type="text" class="form-control element-form" name="u_name"  placeholder="Имя"/>
+                                                <input type="text" class="form-control element-form" name="u_name"  placeholder="Введите имя"/>
                                             </td>
                                        </div>
                                     </div>
 
-<!--                                    <input type="text" name="u_name">-->
-<!--                                    <label for="login">Придумайте логин:</label>-->
-                                    <input type="text" name="u_nicename">
-<!--                                    <label for="email">Введите вашу почту:</label>-->
-                                    <input type="text" name="u_email">
-<!--                                    <label for="password">Введите ваш пароль:</label>-->
-                                    <input type="password" name="u_pass">
-                                    <button type="submit" name="register">Регистрация</button>
-                                    <p><a href="authorization.php">Уже зарегистрированы?</a></p>
-                                </form>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <td>
+                                    <input type="text" class="form-control element-form" name="u_nicename" placeholder="Введите логин"/>
+                                            </td>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <td>
+                                    <input type="text" class="form-control element-form" name="u_email" placeholder="Введите электронную почту">
+                                                </td>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <td>
+                                    <input type="password" class="form-control element-form" name="u_pass" placeholder="Введите пароль">
+                                                    </td>
+                                                </div>
+                                                </div>
 
-<!--                                <form action="index.php" method="POST" name="registerform">-->
-<!--                                    <div>-->
-<!--                                        <div class="row">-->
-<!--                                            <div class="col-md-6">-->
-<!--                                                <div class="form-group">-->
-<!--                                                    <td>-->
-<!--                                                    <input type="text" class="form-control element-form" name="u_name"  placeholder="Имя"/>-->
-<!--                                                    </td>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="col-md-6">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <input type="text" class="form-control element-form" name="u_nicename"  placeholder="Никнейм" />-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                            <div class="col-md-6">-->
-<!--                                                <div class="form-group">-->
-<!--                                                    <input type="text" class="form-control element-form" name="u_email"  placeholder="Электронная почта" />-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!---->
-<!--                                            <div class="col-md-6">-->
-<!--                                                <div class="form-group">-->
-<!--                                                    <input type="text" class="form-control element-form" name="u_pass"  placeholder="Пароль"/>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!---->
-<!--                                        <div class="row">-->
-<!--                                            <div class="col-md-12">-->
-<!--                                                <div class="home_btns m-top-5">-->
-<!--                                                    <button class="btn btn-primary m-top-20" type="submit" name="register">ЗАРЕГИСТРИРОВАТЬСЯ</button>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </form>-->
+                                    <div class="home_btns m-top-5">
+                                    <button class="btn btn-primary m-top-20" type="submit" name="register">Регистрация</button>
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -179,9 +157,9 @@
             </div>
         </section>
 
-        <div id="authorized">
+       <!-- <div id="authorized">
             <h2>Вы уже зарегистрированы</h2>
-        </div>
+        </div>-->
 
             <!--Сообщение для пользователя-->
             <section id="action" class="action bg-blue roomy-40">

@@ -1,3 +1,30 @@
+<?php
+include ('connect.php');
+if(isset($_POST["auth"])) {
+    if(!empty($_POST['login']) && !empty($_POST['password'])) {
+        $login = mysqli_real_escape_string($connect, $_POST['login']);
+        $password = mysqli_real_escape_string($connect, ($_POST['password']));
+        $password=md5($password);
+
+        $query = mysqli_query($connect, "SELECT id
+                                                FROM `useri`
+                                                WHERE `nicename`='{$login}' AND `pass`='{$password}'
+                                                limit 1");
+
+        if (mysqli_num_rows($query) == 1) {
+            session_start();
+            $_SESSION['login'] = $login;
+            echo "Успешная авторизация";
+        } else {
+            echo "Ошибка данных";
+        }
+
+    } else {
+        echo "Заполните поля!";
+    }
+
+}
+?>
 <!doctype html>
 
 <html class="no-js" lang="ru"> 
@@ -47,8 +74,7 @@
 
 
             <nav class="navbar navbar-default bootsnav navbar-fixed no-background white">
-               
-               
+
                     <!-- шапка -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
@@ -68,7 +94,15 @@
                             <li><a href="index.php">Главная страница</a></li>
                         </ul>
                     </div>
-                </div> 
+                </div>
+
+
+
+
+
+
+
+
 
             </nav>
         <!--Блок 1-->
@@ -79,81 +113,44 @@
                     <div class="main_home">
                         <div class="col-md-12">
                             <div class="hello_slid">
-                                <form action="index.php" method="POST">
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control element-form" name="email" id="email" placeholder="Электронная почта" />
-                                                </div>
-                                            </div>
+                                <?php
+                                session_start();
+                                if(isset($_SESSION['login'])==FALSE) {
+                                ?>
+                                <form action="author.php" method="POST" name="auth_form">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control element-form" name="password" id="password" placeholder="Пароль"/>
+                                                    <input type="text" class="form-control element-form" name="login" placeholder="Введите логин" />
                                                 </div>
                                             </div>
-                                        </div>
-                                                <div class="home_btns m-top-5">
 
-                                                    <button class="btn btn-primary m-top-20" type="submit" name="buttonClk">ВОЙТИ</button>
-
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control element-form" name="u_password" placeholder="Введите пароль"/>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                    <div class="home_btns m-top-5">
+                                        <button class="btn btn-primary m-top-20" type="submit" name="register">Войти</button>
                                     </div>
-                                </form>
 
+                                </form>
+                        <?php
+                        }
+                        else {
+                            ?>
+                            <p><a href="exit.php">Выйти(<? echo "{$_SESSION['login']}"; ?>)</a></p>
+                            <p><a href="admin_check.php">Админ</a></p>
+                            <?php
+                        }
+                        ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
-
-        <?php
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "1234";
-        $dbname = "schema1";
-
-        if (isset($_POST['buttonClk'])) {
-
-// Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $conn->set_charset("utf8");
-// Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $select = $_POST['select'];
-            $message = $_POST['message'];
-
-
-            $sql = " INSERT INTO `new_table` (`name`, `email`, `phone`, `select`, `message`) VALUES ('$name', '$email', '$phone', '$select ', '$message') ";
-
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Ваши данные были успешно отправлены! Вскоре наши менеджеры свяжутся с вами!";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-
-
-            $conn->close();
-        }
-        ?>
-
-
-
 
             <!--Сообщение для пользователя-->
             <section id="action" class="action bg-blue roomy-40">
@@ -174,7 +171,6 @@
                     </div>
                 </div>
             </section>
-
 
 
 			<!--Блок 6-->
