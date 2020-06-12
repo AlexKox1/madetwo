@@ -78,34 +78,33 @@
     function Print_Table(){
         $connect = mysqli_connect('localhost', 'root', '1234', 'schema1');
         $query = "SELECT * FROM contacts";
-        $result = mysqli_query($connect, $query) or die("Ошибка " . mysqli_error());
+        $result = mysqli_query($connect, $query) or die("Ошибка" . mysqli_error());
         $rows = mysqli_num_rows($result);
-        echo "<table border='1'><tr><th>Id</th><th>Имя</th><th>Почта</th><th>Контактный телефон</th><th>Причина обращения</th><th>Сообщение оператору</th></tr>";
+        echo "<table class='table table-striped'><tr><th>Id</th><th>Имя</th><th>Почта</th><th>Контактный телефон</th><th>Причина обращения</th><th>Сообщение оператору</th></tr>";
         for ($i = 0; $i < $rows; ++$i) {
             $row = mysqli_fetch_row($result);
             echo "<tr>";
             for ($j = 0; $j < 6; ++$j) echo "<td>$row[$j]</td>";
             echo "</tr>";
         }
+        echo "</table>";
         mysqli_close($connect);
     }
-
     ?>
 </div>
 <section id="home" class="home ">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="main_home">
+            <!--<div class="main_home">-->
                 <div class="col-md-12">
                     <div class="hello_slid">
-
                         <div class="table">
                             <form method="post" name="tableform">
                                 <?php Print_Table() ?>
                             </form>
                         </div>
-                        </form>
+                            </form>
                     </div>
                 </div>
             </div>
@@ -117,7 +116,7 @@
 
 <footer id="contact" class="footer action-lage bg-black p-top-0">
 
-    <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
+    <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-100 m-top-0">
         <div class="col-md-12">
             <p class="wow fadeInRight" data-wow-duration="1s">
                 Сделано на

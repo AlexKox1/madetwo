@@ -95,16 +95,8 @@ if(isset($_POST["auth"])) {
                         </ul>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
             </nav>
+
         <!--Блок 1-->
         <section id="home" class="home bg-black fix">
             <div class="overlay"></div>
@@ -114,7 +106,7 @@ if(isset($_POST["auth"])) {
                         <div class="col-md-12">
                             <div class="hello_slid">
                                 <?php
-                                session_start();
+                                //session_start();
                                 if(isset($_SESSION['login'])==FALSE) {
                                 ?>
                                 <form action="author.php" method="POST" name="auth_form">

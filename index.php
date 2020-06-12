@@ -70,7 +70,17 @@
                             <li><a href="#product">Наше портфолио</a></li>
                             <li><a href="#team">Наша команда</a></li>
                             <li><a href="#contact">Контакты</a></li>
-                            <li><a href="author.php">Войти</a></li>
+                                    <?php
+                                    echo "<li><a href=\"author.php\">";
+                                    session_start();
+                                    if(isset($_SESSION['login'])==TRUE){
+                                    echo "Добро пожаловать, {$_SESSION['login']}";
+                                    } else {
+                                    echo "<li><a href=\"author.php\"> Войти";
+                                    }
+
+                                    ?>
+                                </a></li>
                             <li><a href="register.php">Регистрация</a></li>
                         </ul>
                     </div>
@@ -624,7 +634,7 @@
             $message = $_POST['message'];
 
 
-            $sql = " INSERT INTO `new_table` (`name`, `email`, `phone`, `select`, `message`) VALUES ('$name', '$email', '$phone', '$select ', '$message') ";
+            $sql = " INSERT INTO `contacts` (`name`, `email`, `phone`, `select`, `message`) VALUES ('$name', '$email', '$phone', '$select ', '$message') ";
 
 
             if ($conn->query($sql) === TRUE) {
