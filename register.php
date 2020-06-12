@@ -126,24 +126,24 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <td>
-                                    <input type="text" class="form-control element-form" name="u_nicename" placeholder="Введите логин"/>
+                                                <input type="text" class="form-control element-form" name="u_nicename" placeholder="Введите логин"/>
                                             </td>
                                         </div>
                                     </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <td>
-                                    <input type="text" class="form-control element-form" name="u_email" placeholder="Введите электронную почту">
+                                                    <input type="text" class="form-control element-form" name="u_email" placeholder="Введите электронную почту">
                                                 </td>
                                             </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <td>
-                                    <input type="password" class="form-control element-form" name="u_pass" placeholder="Введите пароль">
+                                                        <input type="password" class="form-control element-form" name="u_pass" placeholder="Введите пароль">
                                                     </td>
                                                 </div>
-                                                </div>
+                                            </div>
 
                                     <div class="home_btns m-top-5">
                                     <button class="btn btn-primary m-top-20" type="submit" name="register">Регистрация</button>

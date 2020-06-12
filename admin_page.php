@@ -71,7 +71,9 @@
 </div>
 <div class="db_connection">
     <?php
+    include ('connect.php');
     session_start();
+
 
     function Print_Table(){
         $connect = mysqli_connect('localhost', 'root', '1234', 'schema1');

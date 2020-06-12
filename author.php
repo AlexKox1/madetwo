@@ -127,12 +127,12 @@ if(isset($_POST["auth"])) {
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control element-form" name="u_password" placeholder="Введите пароль"/>
+                                                    <input type="text" class="form-control element-form" name="password" placeholder="Введите пароль"/>
                                                 </div>
                                             </div>
 
                                     <div class="home_btns m-top-5">
-                                        <button class="btn btn-primary m-top-20" type="submit" name="register">Войти</button>
+                                        <button class="btn btn-primary m-top-20" type="submit" name="auth">Войти</button>
                                     </div>
 
                                 </form>
